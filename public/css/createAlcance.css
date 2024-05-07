@@ -1,0 +1,75 @@
+:root{
+    --color-white: #fff;
+    --color-dark1: #272727;
+    --color-dark2: #2d2d2d;
+    --color-dark3: #414141;
+    --color-dark4: #1c1c1c;
+    --color-dark5: #343434;
+    --color-dark6: #2c2c2c;
+    --color-purple: #b040ff;
+    --color-table: #aab7b8;
+    --color-tableTitles: #424949;
+    --color-table-lines: #ccc;
+    --color-black: black;
+    --color-red: red;
+    --color-darkGreen: #1e8449;
+
+}
+
+
+.divPrincipalCreate{
+    max-width: 450px;
+    background-color: var(--color-white);
+    margin-left: auto; /* Centralizar a div horizontalmente */
+    margin-right: auto;
+    text-align: center; /*Centralizar o texto*/
+    padding-top: 20px;
+}
+
+.divFilhaCreate{
+    padding-top: 20px;
+}
+
+.tituloCreate{
+    color: black; /* Cor do texto */
+    font-size: 24px; /* Tamanho da fonte */
+    font-weight: bold;
+    font-size: 2.0rem;
+}
+
+.btnSalvarAlcance{
+    background: var(--color-darkGreen);
+    color: var(--color-white);
+    font-size: 15px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    
+}
+
+.btnCancelarAlcance{
+    background: rgb(88, 153, 228);
+    color: var(--color-white);
+    font-size: 15px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid black;
+    
+}
+
+.divSalvarAlcance,
+.divCancelarAlcance {
+    display: inline-block;
+    vertical-align: middle; /* Alinha as divs pela parte superior */
+}
+
+/* Estilize opcionalmente as divs */
+.divSalvarAlcance,
+.divCancelarAlcance {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

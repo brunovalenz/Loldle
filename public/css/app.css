@@ -1,0 +1,120 @@
+
+.cabecalho th{
+    font-weight:700;
+    text-align:center;
+    background: #00695c;
+    color:#fff;
+}
+
+.centralizado{
+    text-align: center;
+}
+
+body{
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-image: url(../img/beautiful-league-of-legends-wallpaper_111229615_289.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: black;
+
+}
+
+:root{
+    --color-white: #fff;
+    --color-dark1: #272727;
+    --color-dark2: #2d2d2d;
+    --color-dark3: #414141;
+    --color-dark4: #1c1c1c;
+    --color-dark5: #343434;
+    --color-dark6: #2c2c2c;
+    --color-purple: #b040ff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.imgLogo{
+    width: 45px;
+}
+
+.header,
+.navegationHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;/*alinhar no centro*/
+}
+
+.header{
+    background-color: var(--color-dark2);
+    box-shadow: 10px 10px 10px var(--color-dark4);
+    height: 3.5em;/*tamanho do header*/
+    justify-content: space-between;/*espaçamento entre os itens*/
+    padding: 0 6%; /*espaçamento dos intens na direita e na esquerda*/
+}
+
+.navegationHeader{
+    gap: 3em;
+    z-index: 2;
+}
+
+.navegationHeader a{/*trabalhando diretamente com o link*/
+    text-decoration: none;/*retirar os sublinhados dos links*/
+    color: var(--color-purple);/*retirar os sublinhados dos links*/
+    transition: 1s; /*tempo para alteração de cores dos elementos*/
+    font-weight: bold;
+}
+
+.navegationHeader a:hover {
+    color: var(--color-white); /* Cor do texto se torna branco ao passar o mouse */
+}
+
+.active{
+    background-color: var(--color-dark6);/*alterando a cor de fundo dos elementos*/
+    padding: 7px;/*aumentar o tamanho*/
+    border-radius: 6px;/*arredondar as bordas*/
+}
+
+.content{
+    text-align: center;/*deixar o texto centralizado*/
+    padding-top: 5em;/*distancia entre a borda de cima (div anterior)*/
+    min-height: 100vh;
+    transition: 1s;
+}
+
+.btnIconHeader{
+    background-color: transparent;/*deixar os botões transparentes*/
+    border: none;/*retirar as bordas*/
+    color: var(--color-white);
+    cursor: pointer;/*muda o estilo do cursor do mouse*/
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    
+    .btnIconHeader{
+        display: block;
+    }
+
+    .navegationHeader{
+        position: absolute;
+        flex-direction: column;
+        top: 0;
+        background-color: var(--color-dark6);
+        height: 150%;
+        width: 35vw;
+        padding: 1em;
+        animation-duration: 1s;
+        margin-left: -100vw;
+
+    }
+}
+
+@keyframes showSidebar{
+    from {margin-left: -100vw}
+    to {margin-left: -10vw}
+}

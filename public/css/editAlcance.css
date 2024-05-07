@@ -1,0 +1,14 @@
+
+.divTituloEditAlc,
+.divContainerEditAlc{
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.918);
+    margin-left: auto; /* Centralizar a div horizontalmente */
+    margin-right: auto;
+    
+}
+
+.divTituloEditAlc h2{
+    padding: 2rem 1rem;
+    font-size: 2rem;
+}

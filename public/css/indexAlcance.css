@@ -1,0 +1,269 @@
+:root{
+    --color-white: #fff;
+    --color-dark1: #272727;
+    --color-dark2: #2d2d2d;
+    --color-dark3: #414141;
+    --color-dark4: #1c1c1c;
+    --color-dark5: #343434;
+    --color-dark6: #2c2c2c;
+    --color-purple: #b040ff;
+    --color-table: #aab7b8;
+    --color-tableTitles: #424949;
+    --color-table-lines: #ccc;
+    --color-black: black;
+    --color-red: red;
+    --color-darkGreen: #1e8449;
+
+}
+
+
+
+.container{
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.918);
+    box-shadow: 2px 5px 10px rgba(0,0,0,0.5);
+    width: 100%; /* Definir a largura desejada da div */
+    margin-left: auto; /* Centralizar a div horizontalmente */
+    margin-right: auto;
+    
+    
+}
+
+.container h2{
+    padding: 2rem 1rem;
+    font-size: 2.5rem;
+}
+
+.tblConteiner{
+    padding-left: 20px;
+    padding-right: 30px;
+    padding-bottom: 80px;
+}
+
+.tbl{
+    
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-white);
+    
+}
+
+.tbl thead{
+    background: var(--color-tableTitles);
+    color: var(--color-white);
+    
+}
+
+.tbl thead tr th{
+    font-size: 0.9rem;
+    padding: 0.8rem;
+    letter-spacing: 0.2rem;
+    vertical-align: top;
+    border: 1px solid var(--color-table);
+    
+}
+
+
+td:nth-child(2) {
+    width: 40px; /* Largura da segunda coluna */
+}
+td:nth-child(3) {
+    width: 40px; /* Largura da segunda coluna */
+}
+
+.tbl tbody tr td{
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    font-weight: normal;
+    text-align: center;
+    border: 1px solid var(--color-table); 
+    padding: 0.8rem;
+    
+}
+
+.tbl tr:nth-child(even){
+    background: var(--color-table-lines);
+    padding-right: 0.8rem;
+}
+
+.tbl tr:hover td{
+    background: #839192;
+    color: var(--color-blcak);
+    transition: all 0.3s ease-in;
+    
+    
+}
+/*
+.tbl button{
+    display: inline-block;
+    border: none;
+    margin: 0 auto;
+    padding: 0.4rem;
+    border-radius: 1px;
+    outline: none;
+    cursor: pointer;
+}*/
+
+
+
+.btnExcluir svg {
+    background: var(--color-red);
+    color: var(--color-white);
+    vertical-align: middle; /* Alinha verticalmente o SVG com o texto */
+    margin-right: 15px; /* Adiciona um pequeno espaço à direita do ícone (opcional) */
+    width: 18px; /* Ajusta a largura do ícone */
+    height: 18px; /* Ajusta a altura do ícone */
+    padding: 6px; /* Adiciona padding para aumentar o tamanho do background */
+}
+
+
+.btnEdit svg {
+    background: var(--color-darkGreen);
+    color: var(--color-white);
+    vertical-align: middle; /* Alinha verticalmente o SVG com o texto */
+    margin-right: 15px; /* Adiciona um pequeno espaço à direita do ícone (opcional) */
+    width: 18px; /* Ajusta a largura do ícone */
+    height: 18px; /* Ajusta a altura do ícone */
+    padding: 6px; /* Adiciona padding para aumentar o tamanho do background */
+    
+}
+
+@media (max-width: 768px){
+    .tbl thead{
+        display: none;
+    }
+
+    .tbl tr,
+    .tbl td{
+        display: block;
+        width: 100%;
+    }
+
+    .tbl tr{
+        margin-bottom: 1rem;
+    }
+
+    .tbl tbody tr td{
+        text-align: right;
+        position: relative;
+        width: 97%;
+    }
+
+    .tbl td::before{
+        content: attr(data-lable);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        text-align: left;
+        padding-left: 1.2rem;
+    }
+}
+
+.campoCustomizado{
+    position: relative;
+    font-size: 14px;
+    padding-top: 45px;
+    margin-bottom: 5px;
+   
+}
+
+.campoCustomizado input{/*trabalhando no botão pesquisar*/
+    border: none;
+    -webkit-appearance: none;
+    -ms-progress-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #f2f2f2;
+    padding: 12px;
+    border-radius: 3px;
+    width: 250px;
+    outline: none;
+    font-size: 18px;
+    
+}
+
+.campoCustomizado.one input{
+    background: none;
+    border: 2px solid #ddd;
+    transition: border-color 0.3s ease;
+    
+}
+
+.campoCustomizado input:valid,
+.campoCustomizado input:focus {
+    border-color: var(--color-tableTitles);
+    transition-delay: 0.1s;
+}
+
+.campoCustomizado.one input + .placeholder{
+    padding: 0 5px;
+    
+}
+
+.campoCustomizado.one input:valid + .placeholder,
+.campoCustomizado.one input:focus + .placeholder{
+    top: 20px;
+    background: rgba(255, 255, 255, 0.918);
+}
+
+.campoCustomizado .placeholder{
+    font-family: sans-serif;
+    font-size: 18px;
+    position: absolute;
+    left: 12px;
+    top: 70%;
+    color: #aaa;
+    transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+    
+    
+}
+
+.campoCustomizado input:valid + .placeholder,
+.campoCustomizado input:focus + .placeholder{
+    top: 15px;
+    font-size: 13px;
+    color: var(--color-tableTitles);
+}
+
+.pesquisar{
+    margin-bottom: 5px;
+    float: left; /* Define a largura desejada */
+    
+}
+
+.qntLimpar{
+    padding-top: 5px;
+    padding-right: 65px;
+    padding-bottom: 12px;
+}
+
+a{
+    padding-left: 20px;
+}
+
+.lblQuantidade{
+    padding-left: 5px;
+}
+
+.btnPesquisar{
+    background: var(--color-darkGreen);
+    color: var(--color-white);
+    font-size: 15px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btnCriarAlcance{
+    background: var(--color-darkGreen);
+    color: var(--color-white);
+    font-size: 15px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    float: left;
+    margin-top: 20px;
+    text-decoration: none;
+    border: 1px solid black;
+}
+
