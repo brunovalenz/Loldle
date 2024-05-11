@@ -38,7 +38,7 @@ class EspeciesController extends Controller
     public function create()
     {
         //dd('acessando o controller autor controler - create');
-        return view('alcances.create');
+        return view('especies.create');
     }
 
     /**

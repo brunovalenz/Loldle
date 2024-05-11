@@ -13,12 +13,12 @@
                 @csrf
                 @include('especies.__form')
 
-                <div class="divSalvarEspecie">
-                    <button type="submit" class="btnSalvarEspecie"> Salvar</button>
+                <div class="divSalvarAlcance">
+                    <button type="submit" class="btnSalvarAlcance"> Salvar</button>
                 </div>
                 
-                <div class="divCancelarEspecie">
-                    <a class="btnCancelarEspecie" href="{{ route ('especies.index')}}">Cancelar</a>
+                <div class="divCancelarAlcance">
+                    <a class="btnCancelarAlcance" href="{{ route ('especies.index')}}">Cancelar</a>
                 </div>
 
             </form>

@@ -21,7 +21,7 @@
         </div>
 
         <div class="divCancelarEspecie">
-            <a class="btnCancelarEspecieDest" href="{{ route ('especie.index')}}">Cancelar</a>
+            <a class="btnCancelarEspecieDest" href="{{ route ('especies.index')}}">Cancelar</a>
         </div>
         
     </div>

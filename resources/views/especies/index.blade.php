@@ -84,7 +84,7 @@
                     {!! $registros->appends(['perPage'=>$perPage])->links() !!}
                 @endif
                     
-                <a type="button" class ="btnCriarEspecie"
+                <a type="button" class ="btnCriarAlcance"
                     href="{{ route('especies.create')}}">
                     Adicionar Nova Espécie
                     <i class=""></i>
