@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Especies;
 use Illuminate\Support\ServiceProvider;
 use App\Service\AlcancesServiceInterface;
 use App\Service\RegiaoServiceInterface;
@@ -13,6 +14,7 @@ class ServicesProvider extends ServiceProvider
     public array $bindings = [
         AlcancesServiceInterface::class => AlcancesService::class,
         RegiaoServiceInterface::class => RegiaoService::class,
+        EspeciesServiceInterface::class => EspeciesService::class,
     ];
 
     /**

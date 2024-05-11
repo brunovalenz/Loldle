@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlcancesController;
 use App\Http\Controllers\RegiaoController;
+use App\Http\Controllers\EspeciesController;
 use App\Http\Controllers\DashBoard;
 
 Route::get('/dashboard', [DashBoard::class,'dashboard'])->name('dashboard');
@@ -31,4 +32,17 @@ Route::prefix('regiao') -> group(function(){
     Route::post('/store', [RegiaoController::class, 'store'])->name('regiao.store');
     Route::put('/update/{id}', [RegiaoController::class, 'update'])->name('regiao.update');#o id é chave primeira da tabela para identifcar quem estou modificando
     Route::delete('/destroy/{id}', [RegiaoController::class, 'destroy'])->name('regiao.destroy');#estou passando parametro para o servidor
+});
+
+Route::prefix('especies') -> group(function(){
+
+    Route::any('/index' , [EspeciesController::class,'index'])->name('especies.index');
+    Route::get('/create', [EspeciesController::class, 'create'])->name('especies.create');
+    Route::get('/edit/{id}', [EspeciesController::class, 'edit'])->name('especies.edit');
+    Route::get('/show/{id}', [EspeciesController::class, 'show'])->name('especies.show');
+    Route::get('/delete/{id}', [EspeciesController::class, 'delete'])->name('especies.delete');#estou passando parametro para o servidor
+    
+    Route::post('/store', [EspeciesController::class, 'store'])->name('especies.store');
+    Route::put('/update/{id}', [EspeciesController::class, 'update'])->name('especies.update');#o id é chave primeira da tabela para identifcar quem estou modificando
+    Route::delete('/destroy/{id}', [EspeciesController::class, 'destroy'])->name('especies.destroy');#estou passando parametro para o servidor
 });
