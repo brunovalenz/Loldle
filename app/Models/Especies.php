@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alcances extends Model
+class Especies extends Model
 {
     use HasFactory;
 
-    protected $table = "alcances";
+    protected $table = "especies";
 
     protected $fillable = [
-        'alcance'
+        'especie'
     ];
 
     protected $hiden =[
@@ -24,13 +24,13 @@ class Alcances extends Model
     public function rules(){
 
         return[
-            'alcance'=>'required'
+            'especie'=>'required'
         ];
     }
 
     public function feedback(){
         return[
-            'alcance'=>'O campo :attribute é obrigatório ser informado!'
+            'especie'=>'O campo :attribute é obrigatório ser informado!'
         ];
     }
 }
