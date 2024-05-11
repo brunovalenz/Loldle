@@ -15,6 +15,11 @@ class Regiao extends Model
         'regiao'
     ];
 
+    protected $hiden =[
+        'creat_at',
+        'updated_at'
+    ];
+
     public function rules(){
 
         return[

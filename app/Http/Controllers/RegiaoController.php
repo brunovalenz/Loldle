@@ -23,17 +23,15 @@ class RegiaoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //dd('acessando o controller autor controller - index');
-
-        //essa variavel service eu criei no construtor e atribui o valor do model
-        $registros =  $this->service->index(10);
-        //$registros = Autor::paginate(10);
-
-        return view('regiao.index', [
-            'registros'=> $registros['registros'],
-        ]);
+        $pesquisar = $request->pesquisar ?? "";
+        $perPage = $request->perPage ?? 5;
+       // dd('acessando o controller autor controler - index');// mostrar uma mensagem 
+       //$registros = Autor::paginate(10);#crie uma variável
+       $registros = $this->service->index($pesquisar, $perPage);
+       //dd($registros);
+        return view ('regiao.index', ['registros' => $registros, 'perPage' => $perPage, 'filter'=>$pesquisar]);
     }
 
     /**
@@ -52,8 +50,15 @@ class RegiaoController extends Controller
     public function store(RegiaoFormRequest $request){
         #validar o campo antes de efetivamente criar
 
-        $this->service->store($request);
-        return redirect()->route('regiao.index');
+        $registro=$request->all();
+        
+        try{
+            $data = $request->validated();
+            $registro = $this->service->store($registro);
+            return redirect()->route('regiao.index')->with('success','Registro cadastrado com sucesso!');
+        }catch(Exception $e){
+            return view('regiao.create',['registro'=>$registro,'fail'=>$e->getMessage()]);
+        }
     }
 
     /**
@@ -61,10 +66,13 @@ class RegiaoController extends Controller
      */
     public function show(string $id)
     {
-        $registro = $this->service->show($id);
-        return view('regiao.show', [
-            'registro' => $registro['registro'],
-        ]);        
+        $registro = null;
+        try{
+            $registro = $this->service->show($id);
+            return view('regiao.show',['registro'=>$registro]);
+        }catch(Exception $e){
+            return view('regiao.show',['registro'=>$registro,'fail'=>'Registro não localizado'.$e->getMessage()]);
+        }      
 
     }
 
@@ -73,18 +81,13 @@ class RegiaoController extends Controller
      */
     public function edit(string $id)
     {
-        //complete a função de editar
-        $registro = $this->service->show($id);
-
-        //Validação para caso o registro não exista
-        //if(!$registro){
-          //  return redirect()->back();
-        //}
-
-        return view('regiao.edit', [
-            'registro'=> $registro['registro'],
-        ]);
-
+        $registro = null;
+        try{
+            $registro = $this->service->show($id);
+            return view('regiao.edit',['registro'=>$registro]);
+        }catch(Exception $e){
+            return view('regiao.edit',['registro'=>$registro,'fail'=>$e->getMessage()]);
+        }
 
     }
 
@@ -94,17 +97,25 @@ class RegiaoController extends Controller
     public function update(RegiaoFormRequest $request, string $id)
     {
     
-        $this -> service -> update($request, $id);
-        return redirect()->route('regiao.index');
+        $registro = null;
+        $registro=$request->all();   
+        try{
+            $registro = $this->service->update($registro,$id);
+            return redirect()->route('regiao.index')->with('success','Registro alterado com sucesso!');
+        }catch(Exception $e){
+            return view('regiao.edit',['registro'=>$registro,'fail'=>$e->getMessage()]);
+        }
 
     }
 
     public function delete(string $id){
-        $registro = $this ->service -> show($id);
-
-        return view('regiao.destroy', [
-            'registro'=> $registro['registro'],
-        ]);
+        $registro = null;
+        try{
+            $registro = $this->service->show($id);
+            return view('regiao.destroy',['registro'=>$registro]);
+        }catch(Exception $e){
+            return view('regiao.destroy',['registro'=>$registro,'fail'=>$e->getMessage()]);
+        }
     }
 
     /**
@@ -112,7 +123,11 @@ class RegiaoController extends Controller
      */
     public function destroy(string $id)
     {
-        $this ->service -> destroy($id);
-        return redirect()->route('regiao.index');
+        try{
+            $this->service->destroy($id);
+            return redirect()->route('regiao.index')->with('success','Registro excluido com sucesso!');
+        }catch(Exception $e){
+            return view('regiao.destroy',['fail'=>$e->getMessage()]);
+        }
     }
 }

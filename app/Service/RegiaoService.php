@@ -3,9 +3,9 @@
 namespace App\Services;
 
 use App\Models\Regiao;
-use App\Services\RegiaorServiceInterface;
 use Illuminate\Http\Request;
-
+use Exception;
+use Illuminate\Support\Facades\DB;
 
 class RegiaoService implements RegiaoServiceInterface{
 
@@ -15,37 +15,70 @@ class RegiaoService implements RegiaoServiceInterface{
         $this->repository = $regiao;
     }
 
-    public function index(){
-        $registros = $this->repository->paginate(5);
-        return(["registros"=>$registros]);
+    public function index($pesquisar, $perPage){
+        $registros = $this->repository->where(function($query) use ($pesquisar){
+
+            if($pesquisar){
+                $query->where("regiao","like","%".$pesquisar."%");
+            }
+        })->paginate($perPage);
+        return $registros;
     }
     
     //salvar
     public function store($request){
-        #validar o campo antes de efetivamente criar
-        
-
-        $this->repository->create($request->all());
+        DB::beginTransaction();
+        try{
+            
+            $registro=$this->repository->create($request);
+            DB::commit();
+            return $registro;
+        }catch(Exception $e){
+            //dd($e->getMessage());
+            DB::rollBack();
+            return new Exception('Erro ao criar o registro'.$e->getMessage());
+            
+        }
     }
 
     public function show($id){
-        $registro = $this->repository->find($id);
-        return (["registro"=>$registro]);
+        try{
+            $registro = $this->repository->findOrfail($id);
+            return $registro;
+        }catch(ModelNotFoundException $e){
+            throw new Exception('Registro não localizado!');
+        }
     }
 
 
     public function update($request, string $id){
-        // $request ->validate([
-        //     $this->repository->rules(),
-        // ]);
-        
+        //dd('passando pelo ervico de update');
         $regiaoCadastrado = $this->repository->find($id);
-        $regiaoCadastrado->update($request->all());
+        
+
+        DB::beginTransaction();
+        try{
+            $registro=$regiaoCadastrado->update($request);
+            DB::commit();
+            return $registro;
+        }catch(Exception $e){
+            DB::rollBack();
+            return new Exception('Erro ao alterar o registro'.$e->getMessage());
+        }
     }
 
     public function destroy($id){
-        $regiaoCadastrado = $this->repository->find($id);
-        $regiaoCadastrado->delete();
+        $regiaoCadastrado = $this->show($id);
+        
+
+        DB::beginTransaction();
+        try{
+            $regiaoCadastrado->delete();
+            DB::commit();
+        }catch(Exception $e){
+            DB::rollBack();
+            return new Exception('Erro ao excluir o registro'.$e->getMessage());
+        }
     }
 
 

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('regioes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('regiao',45);
+            $table->timestamps();
         });
     }
 
