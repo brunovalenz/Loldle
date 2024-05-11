@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AlcancesFormRequests;
 use Illuminate\Http\Request;
 use App\Models\Alcances;
+use Exception;
 use App\Service\AlcancesServiceInterface;
 
 class AlcancesController extends Controller

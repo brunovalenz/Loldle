@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegiaoFormRequest;
 use App\Models\Regiao;
-use App\Services\RegiaoServiceInterface;
+use Exception;
+use App\Service\RegiaoServiceInterface;
 use Illuminate\Http\Request;
 
 
