@@ -1,4 +1,4 @@
-<!--@extends('layout.app')
+<!--@extends('layout.appAlcance')
 @section('content')
 <div>
     <x-local-sistema mensagemPrimaria="Consulta de Autores" mensagemSecundaria="Consultar registro de Autor" url="alcances.index" navegacao="Listagem de Autores" />

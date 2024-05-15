@@ -19,7 +19,7 @@
 
 .divPrincipalCreate{
     max-width: 450px;
-    background-color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.918);;
     margin-left: auto; /* Centralizar a div horizontalmente */
     margin-right: auto;
     text-align: center; /*Centralizar o texto*/
@@ -37,7 +37,7 @@
     font-size: 2.0rem;
 }
 
-.btnSalvarAlcance{
+.btnSalvar{
     background: var(--color-darkGreen);
     color: var(--color-white);
     font-size: 15px;
@@ -47,7 +47,7 @@
     
 }
 
-.btnCancelarAlcance{
+.btnCancelar{
     background: rgb(88, 153, 228);
     color: var(--color-white);
     font-size: 15px;
@@ -59,15 +59,15 @@
     
 }
 
-.divSalvarAlcance,
-.divCancelarAlcance {
+.divSalvar,
+.divCancelar {
     display: inline-block;
     vertical-align: middle; /* Alinha as divs pela parte superior */
 }
 
 /* Estilize opcionalmente as divs */
-.divSalvarAlcance,
-.divCancelarAlcance {
+.divSalvar,
+.divCancelar {
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 20px;

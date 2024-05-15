@@ -106,7 +106,7 @@ td:nth-child(3) {
 
 
 
-.btnExcluir svg {
+.btnExcluirAction svg {
     background: var(--color-red);
     color: var(--color-white);
     vertical-align: middle; /* Alinha verticalmente o SVG com o texto */

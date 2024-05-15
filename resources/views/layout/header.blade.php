@@ -20,7 +20,7 @@
             <a href="#" class="active" >Posição</a>
             <a href="{{ route ('regiao.index')}}" class="active" >Região</a>
             <a href="#" class="active" >Recursos</a>
-            <a href="#" class="active" >Espécies</a>
+            <a href="{{ route ('especies.index')}}" class="active" >Espécies</a>
             <a href="#" class="active" >Habilidade</a>
             <a href="#" class="active" >Skin</a>
             <a href="#" class="active" >Campões</a>

@@ -1,5 +1,5 @@
-.divTituloDestAlc,
-.divContainerDestAlc{
+.divTituloDest,
+.divContainerDest{
     max-width: 450px;
     background: rgba(255, 255, 255, 0.918);
     margin-left: auto; /* Centralizar a div horizontalmente */
@@ -7,12 +7,12 @@
     
 }
 
-.divTituloDestAlc h2{
+.divTituloDest h2{
     padding: 2rem 1rem;
     font-size: 2rem;
 }
 
-.btnExcluirAlcance{
+.btnExcluir{
     background: red;
     color: var(--color-white);
     font-size: 15px;
@@ -21,7 +21,7 @@
     cursor: pointer;
 }
 
-.btnCancelarAlcanceDest{
+.btnCancelarDest{
     background: rgb(88, 153, 228);
     color: var(--color-white);
     font-size: 15px;

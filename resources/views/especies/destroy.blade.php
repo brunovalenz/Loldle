@@ -1,13 +1,13 @@
-@extends('layout.app')
+@extends('layout.appEspecie')
 @section('content')
 
 <div tabindex="0" onclick="closeSidebar()" class="content" id="content">
     @include('layout.alert')
-    <div class="divTituloDestAlc">
+    <div class="divTituloDest">
         <h2>Excluir - Espécie</h2>
     </div>
 
-    <div class="divContainerDestAlc">
+    <div class="divContainerDest">
         <form action="{{route('especies.destroy', $registro->id ) }}" method="POST">
             
             @include('especies.__form')
@@ -16,12 +16,12 @@
                     
         </form>
 
-        <div class="divSalvarAlcance">
-            <button type="submit" class="btnExcluirEspecie"> Excluir</button>
+        <div class="divSalvar">
+            <button type="submit" class="btnExcluir"> Excluir</button>
         </div>
 
-        <div class="divCancelarEspecie">
-            <a class="btnCancelarEspecieDest" href="{{ route ('especies.index')}}">Cancelar</a>
+        <div class="divCancelar">
+            <a class="btnCancelarDest" href="{{ route ('especies.index')}}">Cancelar</a>
         </div>
         
     </div>
