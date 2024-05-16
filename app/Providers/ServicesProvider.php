@@ -7,6 +7,8 @@ use Illuminate\Support\ServiceProvider;
 use App\Service\AlcancesServiceInterface;
 use App\Service\RegiaoServiceInterface;
 use App\Service\RegiaoService;
+use App\Service\CampeoesServiceInterface;
+use App\Service\CampeoesService;
 use App\Service\AlcancesService;
 
 class ServicesProvider extends ServiceProvider
@@ -15,6 +17,7 @@ class ServicesProvider extends ServiceProvider
         AlcancesServiceInterface::class => AlcancesService::class,
         RegiaoServiceInterface::class => RegiaoService::class,
         EspeciesServiceInterface::class => EspeciesService::class,
+        CampeoesServiceInterface::class => CampeoesService::class,
     ];
 
     /**

@@ -23,7 +23,7 @@
             <a href="{{ route ('especies.index')}}" class="active" >Espécies</a>
             <a href="#" class="active" >Habilidade</a>
             <a href="#" class="active" >Skin</a>
-            <a href="#" class="active" >Campões</a>
+            <a href="{{ route ('campeoes.index')}}" class="active" >Campeões</a>
 
         </div>
     </div>

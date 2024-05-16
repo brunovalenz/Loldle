@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Campeoes;
 use App\Service\AlcancesService;
 use App\Service\AlcancesServiceInterface;
+use App\Service\CampeoesServiceInterface;
+use App\Service\CampeoesService;
 use App\Service\RegiaoServiceInterface;
 use App\Service\RegiaoService;
 use App\Service\EspeciesServiceInterface;
@@ -21,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(AlcancesServiceInterface::class, AlcancesService::class);
         $this->app->bind(RegiaoServiceInterface::class, RegiaoService::class);
         $this->app->bind(EspeciesServiceInterface::class, EspeciesService::class);
+        $this->app->bind(CampeoesServiceInterface::class, CampeoesService::class);
     }
 
     /**
