@@ -26,7 +26,11 @@ body{
 }
 
 .imgFundoRegiao{
-    background-image: url(../img/group-olafvsalistar-splash.jpg);
+    background-image: url(../img/Regiao.jpg);
+}
+
+.imgFundoRecurso{
+    background-image: url(../img/Recurso.jpg);
 }
 
 .imgFundoEspecie{

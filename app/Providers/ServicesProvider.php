@@ -13,6 +13,7 @@ class ServicesProvider extends ServiceProvider
         RegiaoServiceInterface::class => RegiaoService::class,
         CampeoesServiceInterface::class => CampeoesService::class,
         PosicoesServiceInterface::class => PosicoesService::class,
+        RecursoServiceInterface::class => RecursoService::class,
     ];
 
     /**
