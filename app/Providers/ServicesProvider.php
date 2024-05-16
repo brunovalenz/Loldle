@@ -10,6 +10,8 @@ use App\Service\RegiaoService;
 use App\Service\CampeoesServiceInterface;
 use App\Service\CampeoesService;
 use App\Service\AlcancesService;
+use App\Service\RecursoService;
+use App\Service\RecursoServiceInterface;
 
 class ServicesProvider extends ServiceProvider
 {
@@ -18,6 +20,7 @@ class ServicesProvider extends ServiceProvider
         RegiaoServiceInterface::class => RegiaoService::class,
         EspeciesServiceInterface::class => EspeciesService::class,
         CampeoesServiceInterface::class => CampeoesService::class,
+        RecursoServiceInterface::class => RecursoService::class,
     ];
 
     /**
