@@ -12,7 +12,7 @@
     
 </head>
 
-<body class="imgFundoRegiao">
+<body class="imgFundoRecurso">
     <header>
         @include('layout.header')
     </header>
