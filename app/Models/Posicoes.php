@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Posicao extends Model
+class Posicoes extends Model
 {
     use HasFactory;
 
@@ -13,6 +13,11 @@ class Posicao extends Model
 
     protected $fillable = [
         'posicao'
+    ];
+
+    protected $hiden =[
+        'creat_at',
+        'updated_at'
     ];
 
     public function rules(){

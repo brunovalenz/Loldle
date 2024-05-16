@@ -17,7 +17,7 @@
             </button>
             <a href="#" class="active" >Home</a>
             <a href="{{ route ('alcances.index')}}" class="active" >Alcance</a>
-            <a href="#" class="active" >Posição</a>
+            <a href="{{ route ('posicoes.index')}}" class="active" >Posição</a>
             <a href="{{ route ('regiao.index')}}" class="active" >Região</a>
             <a href="#" class="active" >Recursos</a>
             <a href="{{ route ('especies.index')}}" class="active" >Espécies</a>
