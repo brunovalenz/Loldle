@@ -4,7 +4,9 @@ use App\Http\Controllers\CampeoesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlcancesController;
 use App\Http\Controllers\RegiaoController;
+use App\Http\Controllers\RecursoController;
 use App\Http\Controllers\EspeciesController;
+use App\Http\Controllers\PosicoesController;
 use App\Http\Controllers\DashBoard;
 
 Route::get('/dashboard', [DashBoard::class,'dashboard'])->name('dashboard');
@@ -35,6 +37,19 @@ Route::prefix('regiao') -> group(function(){
     Route::delete('/destroy/{id}', [RegiaoController::class, 'destroy'])->name('regiao.destroy');#estou passando parametro para o servidor
 });
 
+Route::prefix('recurso') -> group(function(){
+
+    Route::any('/index' , [RecursoController::class,'index'])->name('recurso.index');
+    Route::get('/create', [RecursoController::class, 'create'])->name('recurso.create');
+    Route::get('/edit/{id}', [RecursoController::class, 'edit'])->name('recurso.edit');
+    Route::get('/show/{id}', [RecursoController::class, 'show'])->name('recurso.show');
+    Route::get('/delete/{id}', [RecursoController::class, 'delete'])->name('recurso.delete');#estou passando parametro para o servidor
+    
+    Route::post('/store', [RecursoController::class, 'store'])->name('recurso.store');
+    Route::put('/update/{id}', [RecursoController::class, 'update'])->name('recurso.update');#o id é chave primeira da tabela para identifcar quem estou modificando
+    Route::delete('/destroy/{id}', [RecursoController::class, 'destroy'])->name('recurso.destroy');#estou passando parametro para o servidor
+});
+
 Route::prefix('especies') -> group(function(){
 
     Route::any('/index' , [EspeciesController::class,'index'])->name('especies.index');
@@ -59,4 +74,17 @@ Route::prefix('campeoes') -> group(function(){
     Route::post('/store', [CampeoesController::class, 'store'])->name('campeoes.store');
     Route::put('/update/{id}', [CampeoesController::class, 'update'])->name('campeoes.update');#o id é chave primeira da tabela para identifcar quem estou modificando
     Route::delete('/destroy/{id}', [CampeoesController::class, 'destroy'])->name('campeoes.destroy');#estou passando parametro para o servidor
+});
+
+Route::prefix('posicoes') -> group(function(){
+
+    Route::any('/index' , [PosicoesController::class,'index'])->name('posicoes.index');
+    Route::get('/create', [PosicoesController::class, 'create'])->name('posicoes.create');
+    Route::get('/edit/{id}', [PosicoesController::class, 'edit'])->name('posicoes.edit');
+    Route::get('/show/{id}', [PosicoesController::class, 'show'])->name('posicoes.show');
+    Route::get('/delete/{id}', [PosicoesController::class, 'delete'])->name('posicoes.delete');#estou passando parametro para o servidor
+    
+    Route::post('/store', [PosicoesController::class, 'store'])->name('posicoes.store');
+    Route::put('/update/{id}', [PosicoesController::class, 'update'])->name('posicoes.update');#o id é chave primeira da tabela para identifcar quem estou modificando
+    Route::delete('/destroy/{id}', [PosicoesController::class, 'destroy'])->name('posicoes.destroy');#estou passando parametro para o servidor
 });

@@ -5,26 +5,31 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Posicao extends Model
+class Recurso extends Model
 {
     use HasFactory;
 
-    protected $table = "posicoes";
+    protected $table = "recursos";
 
     protected $fillable = [
-        'posicao'
+        'recurso'
+    ];
+
+    protected $hiden =[
+        'creat_at',
+        'updated_at'
     ];
 
     public function rules(){
 
         return[
-            'posicao'=>'required'
+            'recurso'=>'required'
         ];
     }
 
     public function feedback(){
         return[
-            'posicao'=>'O campo :attribute é obrigatório er informado!'
+            'recurso'=>'O campo :attribute é obrigatório er informado!'
         ];
     }
 }
