@@ -129,6 +129,16 @@ td:nth-child(3) {
 }
 
 @media (max-width: 768px){
+
+    .modal{
+        padding: 10px;
+        width: 80%;
+    }
+
+    .modal span, .btns button{
+        font-size: smaller;
+    }
+
     .tbl thead{
         display: none;
     }
@@ -265,5 +275,78 @@ a{
     margin-top: 20px;
     text-decoration: none;
     border: 1px solid black;
+}
+
+.btnImage{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+hr{
+    border: 0px;
+    border-top: 1px solid lightgray;
+}
+
+.modalContainer{
+    width: 50vw;
+    position: fixed;
+    top: 50px;
+    left: 35%;
+    display: none;
+    z-index: 999;
+    background: transparent;
+}
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.918);
+    border-radius: 10px;
+    width: 50%;
+}
+
+.active{
+    display: flex;
+}
+
+.active .modal{
+    animation: modal .4s;
+}
+
+@keyframes modal{
+    from{
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+    .modal span{
+        margin: 10px auto;
+    }
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btns button{
+    font-size: medium;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: var(--color-white);
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.btnClose{
+    background-color: var(--color-red);
 }
 

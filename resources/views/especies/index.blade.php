@@ -1,4 +1,4 @@
-@extends('layout.appEspecie')
+@extends('layout.appCampeoes')
 @section('content')
 
 <div tabindex="0" onclick="closeSidebar()" class="content" id="content">  
