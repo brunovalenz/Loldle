@@ -37,6 +37,10 @@ body{
     background-image: url(../img/group-teambuilder-splash.jpg);
 }
 
+.imgFundoPosicao{
+    background-image: url(../img/group-olafvsalistar-splash.jpg);
+}
+
 :root{
     --color-white: #fff;
     --color-dark1: #272727;

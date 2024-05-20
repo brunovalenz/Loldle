@@ -75,6 +75,7 @@
                     </tbody>
                 </table>
 
+                <div class="pagination-container">
                 @if (isset($filter))
                     {!! $registros->appends([
                     'filter'=>$filter,
@@ -83,8 +84,9 @@
                 @else
                     {!! $registros->appends(['perPage'=>$perPage])->links() !!}
                 @endif
+                </div>
                     
-                <a type="button" class ="btnCriarAlcance"
+                <a type="button" class ="btnCriar"
                     href="{{ route('regiao.create')}}">
                     Adicionar Nova Região
                     <i class=""></i>

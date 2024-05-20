@@ -1,4 +1,4 @@
-@extends('layout.appCampeoes')
+@extends('layout.appEspecie')
 @section('content')
 
 <div tabindex="0" onclick="closeSidebar()" class="content" id="content">  
@@ -75,6 +75,7 @@
                     </tbody>
                 </table>
 
+                <div class="pagination-container">
                 @if (isset($filter))
                     {!! $registros->appends([
                     'filter'=>$filter,
@@ -83,8 +84,9 @@
                 @else
                     {!! $registros->appends(['perPage'=>$perPage])->links() !!}
                 @endif
+                </div>
                     
-                <a type="button" class ="btnCriarAlcance"
+                <a type="button" class ="btnCriar"
                     href="{{ route('especies.create')}}">
                     Adicionar Nova Espécie
                     <i class=""></i>

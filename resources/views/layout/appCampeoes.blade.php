@@ -12,7 +12,7 @@
     
 </head>
 
-<body class="imgFundoA">
+<body class="imgFundoCampeao">
     <header>
         @include('layout.header')
     </header>
