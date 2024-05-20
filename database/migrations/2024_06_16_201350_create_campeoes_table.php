@@ -17,13 +17,15 @@ return new class extends Migration
             $table->binary('imagem');
             $table->string('genero',100);
             $table->integer('ano');
-            /*$table->unsignedInteger('recursos_idrecursos');*/
+            $table->unsignedInteger('recursos_idrecursos');
             $table->unsignedInteger('alcances_idalcances');
             $table->timestamps();
 
-            /*$table->foreign('recursos_idrecursos')->references('id')->on('recursos')->onDelete('cascade');*/
+            $table->foreign('recursos_idrecursos')->references('id')->on('recursos')->onDelete('cascade');
             $table->foreign('alcances_idalcances')->references('id')->on('alcances')->onDelete('cascade');
         });
+
+        DB::statement('ALTER TABLE campeoes MODIFY imagem LONGBLOB');
     }
 
     /**

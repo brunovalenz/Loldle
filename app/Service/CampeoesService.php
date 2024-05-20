@@ -34,7 +34,7 @@ class CampeoesService implements CampeoesServiceInterface{
             DB::commit();
             return $registro;
         }catch(Exception $e){
-            //dd($e->getMessage());
+            dd($e->getMessage());
             DB::rollBack();
             return new Exception('Erro ao criar o registro'.$e->getMessage());
             
@@ -45,7 +45,7 @@ class CampeoesService implements CampeoesServiceInterface{
         try{
             $registro = $this->repository->findOrfail($id);
             return $registro;
-        }catch(ModelNotFoundException $e){
+        }catch(Exception $e){
             throw new Exception('Registro não localizado!');
         }
     }

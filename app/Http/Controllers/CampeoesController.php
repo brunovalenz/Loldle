@@ -8,6 +8,8 @@ use App\Service\CampeoesServiceInterface;
 use Exception;
 use Illuminate\Http\Request;
 
+use App\Models\Campeoes;
+
 class CampeoesController extends Controller
 {
     private $service;
@@ -46,12 +48,19 @@ class CampeoesController extends Controller
      */
     public function store(CampeoesFormRequest $request)
     {
-        
-       $registro=$request->all();
+
+        $registro=$request->all();
         
         try{
             $data = $request->validated();
-            $registro = $this->service->store($registro);
+
+            // Processa a imagem
+            if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+                $imageData = file_get_contents($request->file('imagem')->getRealPath());
+                $data['imagem'] = $imageData;
+            }
+
+            $this->service->store($data);
             return redirect()->route('campeoes.index')->with('success','Registro cadastrado com sucesso!');
         }catch(Exception $e){
             return view('campeoes.create',['registro'=>$registro,'fail'=>$e->getMessage()]);

@@ -2,16 +2,16 @@
 
 namespace App\Service;
 
-use App\Models\Recurso;
+use App\Models\recursos;
 use Illuminate\Http\Request;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
-class RecursoService implements RecursoServiceInterface{
+class RecursosService implements RecursosServiceInterface{
 
     private $repository;
 
-    public function __construct(Recurso $recursos){
+    public function __construct(recursos $recursos){
         $this->repository = $recursos;
     }
 
@@ -45,7 +45,7 @@ class RecursoService implements RecursoServiceInterface{
         try{
             $registro = $this->repository->findOrfail($id);
             return $registro;
-        }catch(ModelNotFoundException $e){
+        }catch(Exception $e){
             throw new Exception('Registro não localizado!');
         }
     }

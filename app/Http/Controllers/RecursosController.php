@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RecursoFormRequest;
-use App\Models\Recurso;
+use App\Http\Requests\RecursosFormRequest;
+use App\Models\Recursos;
 use Exception;
-use App\Service\RecursoServiceInterface;
+use App\Service\RecursosServiceInterface;
 use Illuminate\Http\Request;
 
 
 
-class RecursoController extends Controller
+class RecursosController extends Controller
 {
     // faça a injeção de dependência do context
     private $service;
 
-    public function __construct(RecursoServiceInterface $service)
+    public function __construct(RecursosServiceInterface $service)
     {
         $this->service = $service;
     }
@@ -48,7 +48,7 @@ class RecursoController extends Controller
      * Store a newly created resource in storage.
      */
 
-    public function store(RecursoFormRequest $request){
+    public function store(RecursosFormRequest $request){
         #validar o campo antes de efetivamente criar
 
         $registro=$request->all();
@@ -95,7 +95,7 @@ class RecursoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(RecursoFormRequest $request, string $id)
+    public function update(RecursosFormRequest $request, string $id)
     {
     
         $registro = null;

@@ -23,7 +23,7 @@ class CampeoesFormRequest extends FormRequest
     {
         $rules = [
             'nome' => 'required',
-            'imagem' => 'required',
+            'imagem' => 'required|image|mimes:jpeg,png,jpg,gif',
             'genero' => 'required',
             'ano' => 'required',
             'recursos_idrecursos' => 'required',

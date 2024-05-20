@@ -6,8 +6,8 @@ use App\Service\AlcancesService;
 use App\Service\AlcancesServiceInterface;
 use App\Service\RegiaoServiceInterface;
 use App\Service\RegiaoService;
-use App\Service\RecursoServiceInterface;
-use App\Service\RecursoService;
+use App\Service\RecursosServiceInterface;
+use App\Service\RecursosService;
 use App\Service\EspeciesServiceInterface;
 use App\Service\EspeciesService;
 use App\Service\CampeoesServiceInterface;
@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(EspeciesServiceInterface::class, EspeciesService::class);
         $this->app->bind(CampeoesServiceInterface::class, CampeoesService::class);
         $this->app->bind(PosicoesServiceInterface::class, PosicoesService::class);
-        $this->app->bind(RecursoServiceInterface::class, RecursoService::class);
+        $this->app->bind(RecursosServiceInterface::class, RecursosService::class);
     }
 
     /**

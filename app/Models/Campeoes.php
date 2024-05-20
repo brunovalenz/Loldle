@@ -20,20 +20,20 @@ class Campeoes extends Model
         'alcances_idalcances',
     ];
 
-    protected $hiden =[
-        'creat_at',
+    protected $hidden =[
+        'created_at',
         'updated_at',
     ];
 
-    public function rules(){
-
-        return[
-            'nome' => 'required',
-            'imagem' => 'required',
-            'genero' => 'required',
-            'ano' => 'required',
-            'recursos_idrecursos' => 'required',
-            'alcances_idalcances' => 'required',
+    public function rules()
+    {
+        return [
+            'nome' => 'required|string|max:255',
+            'imagem' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'genero' => 'required|string|max:255',
+            'ano' => 'required|integer',
+            'recursos_idrecursos' => 'required|integer',
+            'alcances_idalcances' => 'required|integer',
         ];
     }
 

@@ -4,7 +4,7 @@ use App\Http\Controllers\CampeoesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlcancesController;
 use App\Http\Controllers\RegiaoController;
-use App\Http\Controllers\RecursoController;
+use App\Http\Controllers\RecursosController;
 use App\Http\Controllers\EspeciesController;
 use App\Http\Controllers\PosicoesController;
 use App\Http\Controllers\DashBoard;
@@ -39,15 +39,15 @@ Route::prefix('regiao') -> group(function(){
 
 Route::prefix('recurso') -> group(function(){
 
-    Route::any('/index' , [RecursoController::class,'index'])->name('recurso.index');
-    Route::get('/create', [RecursoController::class, 'create'])->name('recurso.create');
-    Route::get('/edit/{id}', [RecursoController::class, 'edit'])->name('recurso.edit');
-    Route::get('/show/{id}', [RecursoController::class, 'show'])->name('recurso.show');
-    Route::get('/delete/{id}', [RecursoController::class, 'delete'])->name('recurso.delete');#estou passando parametro para o servidor
+    Route::any('/index' , [RecursosController::class,'index'])->name('recurso.index');
+    Route::get('/create', [RecursosController::class, 'create'])->name('recurso.create');
+    Route::get('/edit/{id}', [RecursosController::class, 'edit'])->name('recurso.edit');
+    Route::get('/show/{id}', [RecursosController::class, 'show'])->name('recurso.show');
+    Route::get('/delete/{id}', [RecursosController::class, 'delete'])->name('recurso.delete');#estou passando parametro para o servidor
     
-    Route::post('/store', [RecursoController::class, 'store'])->name('recurso.store');
-    Route::put('/update/{id}', [RecursoController::class, 'update'])->name('recurso.update');#o id é chave primeira da tabela para identifcar quem estou modificando
-    Route::delete('/destroy/{id}', [RecursoController::class, 'destroy'])->name('recurso.destroy');#estou passando parametro para o servidor
+    Route::post('/store', [RecursosController::class, 'store'])->name('recurso.store');
+    Route::put('/update/{id}', [RecursosController::class, 'update'])->name('recurso.update');#o id é chave primeira da tabela para identifcar quem estou modificando
+    Route::delete('/destroy/{id}', [RecursosController::class, 'destroy'])->name('recurso.destroy');#estou passando parametro para o servidor
 });
 
 Route::prefix('especies') -> group(function(){
