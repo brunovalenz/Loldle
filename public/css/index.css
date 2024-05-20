@@ -264,7 +264,7 @@ a{
     cursor: pointer;
 }
 
-.btnCriarAlcance{
+.btnCriar{
     background: var(--color-darkGreen);
     color: var(--color-white);
     font-size: 15px;
@@ -350,3 +350,34 @@ hr{
     background-color: var(--color-red);
 }
 
+.pagination-container {
+    display: flex;
+    align-items: center; /* Opcional: para centralizar verticalmente */
+    list-style: none; /* Remover marcadores de lista */
+    padding: 20px; /* Remover preenchimento padrão */
+}
+
+/* Ajuste de estilo para cada item de paginação */
+.pagination-container .pagination li {
+    display: inline; /* Configurar cada item como inline */
+    margin: 0 5px; /* Espaçamento entre os elementos da paginação */
+}
+
+.pagination-container .pagination li a {
+    color: #333; /* Cor dos números ou links */
+    text-decoration: none; /* Remover sublinhado */
+    padding: 8px 12px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 4px; /* Borda arredondada */
+    background-color: #f9f9f9; /* Cor de fundo */
+    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+}
+
+.pagination-container .pagination li a:hover {
+    background-color: #e9e9e9; /* Cor de fundo ao passar o mouse */
+}
+
+.pagination-container .pagination .active a {
+    background-color: #007bff; /* Cor de fundo do item ativo */
+    color: #fff; /* Cor do texto do item ativo */
+}
