@@ -84,7 +84,7 @@
                     {!! $registros->appends(['perPage'=>$perPage])->links() !!}
                 @endif
                     
-                <a type="button" class ="btnCriarAlcance"
+                <a type="button" class ="btnCriar"
                     href="{{ route('alcances.create')}}">
                     Adicionar Novo Alcance
                     <i class=""></i>

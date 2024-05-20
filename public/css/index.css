@@ -264,7 +264,7 @@ a{
     cursor: pointer;
 }
 
-.btnCriarAlcance{
+.btnCriar{
     background: var(--color-darkGreen);
     color: var(--color-white);
     font-size: 15px;
