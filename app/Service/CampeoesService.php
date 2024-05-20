@@ -16,13 +16,15 @@ class CampeoesService implements CampeoesServiceInterface{
     }
 
     public function index($pesquisar, $perPage){
+        
         $registros = $this->repository->where(function($query) use ($pesquisar){
 
             if($pesquisar){
-                $query->where("alcance","like","%".$pesquisar."%");
+                $query->where("nome","like","%".$pesquisar."%");
             }
         })->paginate($perPage);
         return $registros;
+        
         #Aqui, ele pega a minha tabela e exibe na tela os valores dessa tabela!
     }
 

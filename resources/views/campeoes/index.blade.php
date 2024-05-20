@@ -52,13 +52,14 @@
                             <th>Nome</th>
                             <th>Gênero</th>
                             <th>Ano</th>
+                            <th>Recurso</th>
                             <th>Alcance</th>
                             <th colspan="2"> Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($registros as $registro)
-                        <tr>
+                        <tr onclick="exibirImagem('{{ base64_encode($registro->imagem) }}','{{ $registro->nome }}')" >
                             <td data-lable="Imagem">
                                 <button class="btnImage" onclick="openModal()">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-card-image" viewBox="0 0 16 16">
@@ -70,6 +71,10 @@
                                 @include('campeoes.image')
                             </td>
                             <td data-lable="Nome">{{ $registro->nome}}</td>
+                            <td data-lable="Nome">{{ $registro->genero}}</td>
+                            <td data-lable="Nome">{{ $registro->ano}}</td>
+                            <td data-lable="Nome">{{ $registro->recursos_idrecursos}}</td>
+                            <td data-lable="Nome">{{ $registro->alcances_idalcances}}</td>
                             <td data-lable="Editar">
                                 <a class="btnEdit" type="button" href="{{ route('campeoes.edit', $registro->id) }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">

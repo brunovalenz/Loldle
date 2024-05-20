@@ -34,7 +34,7 @@ body{
 }
 
 .imgFundoEspecie{
-    background-image: url(../img/group-teambuilder-splash.jpg);
+    background-image: url(../img/Recurso.jpg);
 }
 
 :root{
@@ -107,6 +107,10 @@ body{
     color: var(--color-white);
     cursor: pointer;/*muda o estilo do cursor do mouse*/
     display: none;
+}
+
+.separacaoCampos{
+    padding-bottom: 20px;
 }
 
 @media screen and (max-width: 768px){

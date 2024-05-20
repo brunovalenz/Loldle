@@ -27,10 +27,12 @@ class CampeoesController extends Controller
     {
         $pesquisar = $request->pesquisar ?? "";
         $perPage = $request->perPage ?? 5;
+        
        // dd('acessando o controller autor controler - index');// mostrar uma mensagem 
        //$registros = Autor::paginate(10);#crie uma variável
        $registros = $this->service->index($pesquisar, $perPage);
        //dd($registros);
+       
         return view ('campeoes.index', ['registros' => $registros, 'perPage' => $perPage, 'filter'=>$pesquisar]); //retorna os conteudo para determinado local
     }
 

@@ -1,9 +1,9 @@
 <div class="modalContainer">
-    <div class="modal">
-        <h2>Teste</h2>
+    <div class="modal" id = "imagemContainer">
+        <h2 id="nomeCampeao"></h2>
         <hr />
         <span>
-            Testando 1,2,3........
+            <img id= "imagemCampeao" src="data:image/jpeg;base64,{{ base64_encode($registro->imagem) }}" alt="Imagem">
         </span>
         <hr />
         <div class="btns">

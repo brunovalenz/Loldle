@@ -47,4 +47,15 @@ class Campeoes extends Model
             'alcances_idalcances' => 'O campo :attribute é obrigatório ser informado!',
         ];
     }
+
+    
+    public function alcances()
+    {
+        return $this->belongsTo(Alcances::class, 'alcances_idalcances');
+    }
+
+    public function recurso()
+    {
+        return $this->belongsTo(Recursos::class, 'recursos_idrecursos');
+    }
 }
