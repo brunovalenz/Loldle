@@ -12,6 +12,7 @@
             <form action="{{route('campeoes.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @include('campeoes.__form')
+                
 
                 <div class="divSalvar">
                     <button type="submit" class="btnSalvar"> Salvar</button>

@@ -24,18 +24,25 @@
             
         </label>
     </div>
-    <div class="separacaoCampos">
-        <label class="campoCustomizado one">
-            <input required type="text" name="recursos_idrecursos" id="recursos_idrecursos" value="{{$registro->recursos_idrecursos ?? old('recursos_idrecursos')}}">
-            <span class="placeholder">ID Recursos</span>
-            
-        </label>
+
+    <div>
+
+        <label>Recurso</label>
+        <select name="recursos_idrecursos" id="recursos_idrecursos">
+            <option>-</option>
+            @foreach($recursos as $recurso)
+                <option value="{{ $recurso->id }}" @if(isset($registro) && $recurso->id == $registro->recursos_idrecursos) selected @endif>{{ $recurso->recurso }}</option>
+            @endforeach
+        </select>
     </div>
-    <div class="separacaoCampos">
-        <label class="campoCustomizado one">
-            <input required type="text" name="alcances_idalcances" id="alcances_idalcances" value="{{$registro->alcances_idalcances ?? old('alcances_idalcances')}}">
-            <span class="placeholder">ID Alcance</span>
-            
-        </label>
-    </div> 
+
+    <div>
+        <label >Alcance</label>
+        <select name="alcances_idalcances" id="alcances_idalcances">
+            <option>-</option>
+            @foreach($alcances as $alcance)
+            <option value="{{ $alcance->id }}" @if(isset($registro) && $alcance->id == $registro->alcances_idalcances) selected @endif>{{ $alcance->alcance }}</option>
+            @endforeach
+        </select>
+    </div>
 </div>

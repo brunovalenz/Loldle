@@ -49,9 +49,9 @@ class Campeoes extends Model
     }
 
     
-    public function alcances()
+    public function alcance()
     {
-        return $this->belongsTo(Alcances::class, 'id', 'alcances_idalcances');
+        return $this->belongsTo(Alcances::class, 'alcances_idalcances');
     }
 
     public function recurso()

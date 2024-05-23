@@ -10,14 +10,13 @@ use Illuminate\Support\Facades\DB;
 class CampeoesService implements CampeoesServiceInterface{
 
     private $repository;
-
     public function __construct(Campeoes $campeoes){#Lembrando que não temos o nosso model Alcances! Ainda temos que criar!
         $this->repository = $campeoes;
     }
 
     public function index($pesquisar, $perPage){
         
-        $registros = $this->repository->where(function($query) use ($pesquisar){
+        $registros = $this->repository->with('alcance', 'recurso')->where(function($query) use ($pesquisar){
 
             if($pesquisar){
                 $query->where("nome","like","%".$pesquisar."%");

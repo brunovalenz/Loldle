@@ -33,4 +33,5 @@ class Alcances extends Model
             'alcance'=>'O campo :attribute é obrigatório ser informado!'
         ];
     }
+
 }

@@ -75,20 +75,8 @@
                             <td data-lable="Nome">{{ $registro->nome}}</td>
                             <td data-lable="Gênero">{{ $registro->genero}}</td>
                             <td data-lable="Ano">{{ $registro->ano}}</td>
-                            <td data-lable="ID Recursos">{{ $registro->recursos_idrecursos}}</td>
-                            <!-- ?php
-
-                            $conn = new mysqli('laravelLoldle', 'root', '');
-                            $sql= "select * from 'Alcances' 
-                            inner join 'Campeoes' 
-                            on 'Alcances'.id = 'Campeoes'.alcances_idalcances";
-                            $result=$conn->query($sql);
-                            while ($row=$result->fetch_assoc()){
-                                print"<option value='".$row->alcance."'>";
-                            }
-
-                            ?> -->
-                            <td data-lable="ID Alcances">{{ $registro->alcances_idalcances}}</td>
+                            <td data-lable="ID Recursos">{{ $registro->recurso->recurso}}</td>
+                            <td data-lable="ID Alcances">{{ $registro->alcance->alcance}}</td>
                             <td data-lable="Editar">
                                 <a class="btnEdit" type="button" href="{{ route('campeoes.edit', $registro->id) }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">

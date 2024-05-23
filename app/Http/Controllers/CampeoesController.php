@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Alcances;
+use App\Models\Recursos;
 use App\Http\Requests\CampeoesFormRequest;
 use App\Service\CampeoesServiceInterface;
 use Exception;
@@ -42,7 +44,10 @@ class CampeoesController extends Controller
     public function create()
     {
         //dd('acessando o controller autor controler - create');
-        return view('campeoes.create');
+        
+        $alcances = Alcances::all(); // Busca todos os alcances
+        $recursos = Recursos::all();
+        return view('campeoes.create', compact('alcances'), compact('recursos'));
     }
 
     /**
@@ -90,9 +95,11 @@ class CampeoesController extends Controller
     public function edit(string $id)
     {
         $registro = null;
+        $alcances = Alcances::all();
+        $recursos = Recursos::all();
         try{
             $registro = $this->service->show($id);
-            return view('campeoes.edit',['registro'=>$registro]);
+            return view('campeoes.edit', ['registro'=>$registro], compact('alcances', 'recursos'));
         }catch(Exception $e){
             return view('campeoes.edit',['registro'=>$registro,'fail'=>$e->getMessage()]);
         }
