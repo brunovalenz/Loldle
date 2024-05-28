@@ -26,6 +26,15 @@
     padding-top: 20px;
 }
 
+.divPrincipalCamp{
+    max-width: 850px;
+    background-color: rgba(255, 255, 255, 0.918);;
+    margin-left: auto; /* Centralizar a div horizontalmente */
+    margin-right: auto;
+    text-align: center; /*Centralizar o texto*/
+    padding-top: 20px;
+}
+
 .divFilhaCreate{
     padding-top: 20px;
 }
@@ -35,6 +44,7 @@
     font-size: 24px; /* Tamanho da fonte */
     font-weight: bold;
     font-size: 2.0rem;
+    margin-bottom: 10px;
 }
 
 .btnSalvar{
@@ -59,6 +69,24 @@
     
 }
 
+.divSalvarCamp,
+.divCancelarCamp {
+    display: inline-block;
+    vertical-align: middle; /* Alinha as divs pela parte superior */
+}
+
+.divSalvarCamp{
+    padding-right: 600px;
+    
+}
+
+
+.divSalvarCamp,
+.divCancelarCamp {
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+
 .divSalvar,
 .divCancelar {
     display: inline-block;
@@ -72,4 +100,61 @@
     padding-right: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.imagemSelec{
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;
+    height: 200px;
+    width: 400px;
+    border: 1px solid black;
+}
+
+.imagemSelec img{
+    max-width: 90%; /* Garante que a imagem não ultrapasse a largura da div */
+    max-height: 90%; /* Garante que a imagem não ultrapasse a altura da div */
+    object-fit: cover;
+    
+}
+
+.inputCreate{
+    display: block; /* Define os campos como elementos de bloco */
+    text-align: left;
+    margin-right: 20px;
+    
+}
+
+.inputCreate input{
+    width: 330px;
+}
+
+.inputCreate input,label {
+    margin-bottom: 20px;
+}
+
+.localImg{
+   margin-left: 10px;
+}
+
+
+
+.inputCreate, .localImg {
+    display: inline-block;
+    vertical-align: top; /* Alinha as divs verticalmente ao topo */
+    
+}
+
+.localImg, .inputCreate {
+    float: right;
+    clear: none; /* Garante que as divs não sejam empilhadas */
+}
+
+.cbox{
+    margin-top: 5px;
+    height: 70px;
+}
+
+.cbox label{
+    margin-left: 10px;
 }

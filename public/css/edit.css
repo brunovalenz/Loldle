@@ -2,13 +2,26 @@
 .divTituloEdit,
 .divContainerEdit{
     max-width: 450px;
-    background: rgba(255, 255, 255, 0.918);
+    background: #ffffffea;
     margin-left: auto; /* Centralizar a div horizontalmente */
     margin-right: auto;
     
 }
 
+.divTituloEditCamp,
+.divContainerEditCamp{
+    max-width: 900px;
+    background: #ffffffea;
+    margin-left: auto; /* Centralizar a div horizontalmente */
+    margin-right: auto;
+}
+
 .divTituloEdit h2{
+    padding: 2rem 1rem;
+    font-size: 2rem;
+}
+
+.divTituloEditCamp h2{
     padding: 2rem 1rem;
     font-size: 2rem;
 }

@@ -110,11 +110,19 @@ class CampeoesController extends Controller
      */
     public function update(CampeoesFormRequest $request, string $id)
     {
-        
-        $registro = null;
-        $registro=$request->all();   
+        $registro=$request->all();
+
         try{
-            $registro = $this->service->update($registro,$id);
+
+            $data = $request->validated();
+
+            // Processa a imagem
+            if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+                $imageData = file_get_contents($request->file('imagem')->getRealPath());
+                $data['imagem'] = $imageData;
+            }
+
+            $this->service->update($data,$id);
             return redirect()->route('campeoes.index')->with('success','Registro alterado com sucesso!');
         }catch(Exception $e){
             return view('campeoes.edit',['registro'=>$registro,'fail'=>$e->getMessage()]);

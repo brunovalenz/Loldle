@@ -3,7 +3,7 @@
 
 <div tabindex="0" onclick="closeSidebar()" class="content" id="content">  
     @include('layout.alert')
-    <div class="container">
+    <div class="containerCamp">
         <div class="tblConteiner">
             <h2> Cadastro de Campeões</h2>
             

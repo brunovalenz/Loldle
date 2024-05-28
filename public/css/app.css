@@ -117,9 +117,6 @@ body{
     display: none;
 }
 
-.separacaoCampos{
-    padding-bottom: 20px;
-}
 
 @media screen and (max-width: 768px){
     
