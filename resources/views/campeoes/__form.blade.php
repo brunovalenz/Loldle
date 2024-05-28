@@ -3,12 +3,11 @@
     <div class="localImg">
 
         <div class="imagemSelec">
-            <img id="imagemSelecionada" src="{{ isset($registro) ? 'data:image/jpeg;base64,' . base64_encode($registro->imagem) : '#' }}" alt="{{ isset($registro) ? 'Imagem selecionada' : 'Nenhuma imagem selecionada!' }}">
+            <img id="imagemSelecionada" src="{{ isset($registro) && $registro->imagem ? 'data:image/jpeg;base64,' . base64_encode($registro->imagem) : '#' }}" alt="{{ isset($registro) && $registro->imagem ? 'Imagem selecionada' : 'Nenhuma imagem selecionada!' }}">
         </div>
         <br>
         <label for="imagem">Escolha uma imagem:</label>
-        <input type="file" name="imagem" id="imagem" required>
-
+        <input type="file" name="imagem" id="imagem">
     </div>
 
     <div class="inputCreate">

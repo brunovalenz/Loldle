@@ -30,8 +30,8 @@
 }
 
 .containerCamp{
-    max-width: 900px;
-    background: rgba(255, 255, 255, 0.918);
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.918);;
     box-shadow: 2px 5px 10px rgba(0,0,0,0.5);
     width: 100%; /* Definir a largura desejada da div */
     margin-left: auto; /* Centralizar a div horizontalmente */

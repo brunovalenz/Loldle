@@ -23,7 +23,7 @@ class CampeoesFormRequest extends FormRequest
     {
         $rules = [
             'nome' => 'required',
-            'imagem' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'imagem' => '|image|mimes:jpeg,png,jpg,gif',
             'genero' => 'required',
             'ano' => 'required',
             'recursos_idrecursos' => 'required',
@@ -38,7 +38,7 @@ class CampeoesFormRequest extends FormRequest
 
         return [
             'nome' => 'O campo :attribute é obrigatório ser informado!',
-            'imagem' => 'O campo :attribute é obrigatório ser informado!',
+            
             'genero' => 'O campo :attribute é obrigatório ser informado!',
             'ano' => 'O campo :attribute é obrigatório ser informado!',
             'recursos_idrecursos' => 'O campo :attribute é obrigatório ser informado!',

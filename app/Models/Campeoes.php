@@ -29,7 +29,7 @@ class Campeoes extends Model
     {
         return [
             'nome' => 'required|string|max:255',
-            'imagem' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'imagem' => '|image|mimes:jpeg,png,jpg,gif|max:2048',
             'genero' => 'required|string|max:255',
             'ano' => 'required|integer',
             'recursos_idrecursos' => 'required|integer',
@@ -40,7 +40,7 @@ class Campeoes extends Model
     public function feedback(){
         return[
             'nome' => 'O campo :attribute é obrigatório ser informado!',
-            'imagem' => 'O campo :attribute é obrigatório ser informado!',
+            
             'genero' => 'O campo :attribute é obrigatório ser informado!',
             'ano' => 'O campo :attribute é obrigatório ser informado!',
             'recursos_idrecursos' => 'O campo :attribute é obrigatório ser informado!',
