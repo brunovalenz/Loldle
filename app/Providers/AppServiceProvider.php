@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Campeoes_Posicoes;
 use App\Service\AlcancesService;
 use App\Service\AlcancesServiceInterface;
 use App\Service\RegiaoServiceInterface;
@@ -14,6 +15,8 @@ use App\Service\CampeoesServiceInterface;
 use App\Service\CampeoesService;
 use App\Service\PosicoesServiceInterface;
 use App\Service\PosicoesService;
+use App\Service\Campeoes_PosicoesServiceInterface;
+use App\Service\Campeoes_PosicoesService;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CampeoesServiceInterface::class, CampeoesService::class);
         $this->app->bind(PosicoesServiceInterface::class, PosicoesService::class);
         $this->app->bind(RecursosServiceInterface::class, RecursosService::class);
+        $this->app->bind(Campeoes_PosicoesServiceInterface::class, Campeoes_PosicoesService::class);
     }
 
     /**

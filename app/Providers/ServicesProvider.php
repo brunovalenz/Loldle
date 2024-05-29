@@ -14,6 +14,7 @@ class ServicesProvider extends ServiceProvider
         CampeoesServiceInterface::class => CampeoesService::class,
         PosicoesServiceInterface::class => PosicoesService::class,
         RecursoServiceInterface::class => RecursoService::class,
+        Campeoes_PosicoesServiceInterface::class => Campeoes_PosicoesService::class,
     ];
 
     /**

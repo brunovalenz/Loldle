@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlcancesController;
 use App\Http\Controllers\RegiaoController;
 use App\Http\Controllers\RecursosController;
+use App\Http\Controllers\Campeoes_PosicoesController;
 use App\Http\Controllers\EspeciesController;
 use App\Http\Controllers\PosicoesController;
 use App\Http\Controllers\DashBoard;
@@ -87,4 +88,17 @@ Route::prefix('posicoes') -> group(function(){
     Route::post('/store', [PosicoesController::class, 'store'])->name('posicoes.store');
     Route::put('/update/{id}', [PosicoesController::class, 'update'])->name('posicoes.update');#o id é chave primeira da tabela para identifcar quem estou modificando
     Route::delete('/destroy/{id}', [PosicoesController::class, 'destroy'])->name('posicoes.destroy');#estou passando parametro para o servidor
+});
+
+Route::prefix('campeoes_posicoes') -> group(function(){
+
+    Route::any('/index' , [Campeoes_PosicoesController::class,'index'])->name('campeoes_posicoes.index');
+    Route::get('/create', [Campeoes_PosicoesController::class, 'create'])->name('campeoes_posicoes.create');
+    Route::get('/edit/{id}', [Campeoes_PosicoesController::class, 'edit'])->name('campeoes_posicoes.edit');
+    Route::get('/show/{id}', [Campeoes_PosicoesController::class, 'show'])->name('campeoes_posicoes.show');
+    Route::get('/delete/{id}', [Campeoes_PosicoesController::class, 'delete'])->name('campeoes_posicoes.delete');#estou passando parametro para o servidor
+    
+    Route::post('/store', [Campeoes_PosicoesController::class, 'store'])->name('campeoes_posicoes.store');
+    Route::put('/update/{id}', [Campeoes_PosicoesController::class, 'update'])->name('campeoes_posicoes.update');#o id é chave primeira da tabela para identifcar quem estou modificando
+    Route::delete('/destroy/{id}', [Campeoes_PosicoesController::class, 'destroy'])->name('campeoes_posicoes.destroy');#estou passando parametro para o servidor
 });
