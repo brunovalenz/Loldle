@@ -13,6 +13,14 @@
             @method('PUT')
             @include('campeoes.__form')
 
+            @foreach($posicoes as $posicao)
+                        <div>
+                            <input type="checkbox" id="posicoes{{ $posicao->id }}" name="posicoes[]" value="{{ $posicao->id }}"
+                            @if(isset($registro) && in_array($posicao->id, $registro->posicoes)) checked @endif>
+                            <label for="posicao{{ $posicao->id }}">{{ $posicao->posicao }}</label>
+                        </div>
+                    @endforeach
+
             <div class="divSalvarCamp">
                 <button class="btnSalvar" type="submit"> Alterar</button>
             </div>

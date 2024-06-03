@@ -32,4 +32,5 @@ class Posicoes extends Model
             'posicao'=>'O campo :attribute é obrigatório er informado!'
         ];
     }
+
 }

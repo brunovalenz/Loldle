@@ -6,13 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Alcances;
 use App\Models\Recursos;
 use App\Models\Posicoes;
-use App\Models\Especies;
+use App\Models\Campeoes;
 use App\Http\Requests\CampeoesFormRequest;
 use App\Service\CampeoesServiceInterface;
 use Exception;
 use Illuminate\Http\Request;
 
-use App\Models\Campeoes;
 
 class CampeoesController extends Controller
 {
@@ -70,9 +69,12 @@ class CampeoesController extends Controller
                 $imageData = file_get_contents($request->file('imagem')->getRealPath());
                 $data['imagem'] = $imageData;
             }
-            
+
             $this->service->store($data);
 
+            $campeao = $this->service->show(Campeoes::max('id'));
+
+            $campeao->posicoes()->attach($registro['posicoes']);
 
             return redirect()->route('campeoes.index')->with('success','Registro cadastrado com sucesso!');
         }catch(Exception $e){
@@ -103,9 +105,10 @@ class CampeoesController extends Controller
         $registro = null;
         $alcances = Alcances::all();
         $recursos = Recursos::all();
+        $posicoes = Posicoes::all();
         try{
             $registro = $this->service->show($id);
-            return view('campeoes.edit', ['registro'=>$registro], compact('alcances', 'recursos'));
+            return view('campeoes.edit', ['registro'=>$registro], compact('alcances', 'recursos', 'posicoes'));
         }catch(Exception $e){
             return view('campeoes.edit',['registro'=>$registro,'fail'=>$e->getMessage()]);
         }

@@ -59,5 +59,9 @@ class Campeoes extends Model
         return $this->belongsTo(Recursos::class, 'recursos_idrecursos');
     }
 
+    public function posicoes()
+    {
+        return $this->belongsToMany(Campeoes_Posicoes::class, 'campeoes_posicoes', 'campeoes_idcampeoes', 'posicoes_idposicoes');	
+    }
     
 }

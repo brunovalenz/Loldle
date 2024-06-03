@@ -58,6 +58,7 @@ class Campeoes_PosicoesController extends Controller
         try{
             $data = $request->validated();
             $registro = $this->service->store($registro);
+            dd($request->all());
             return redirect()->route('campeoes_posicoes.index')->with('success','Registro cadastrado com sucesso!');
         }catch(Exception $e){
             return view('campeoes_posicoes.create',['registro'=>$registro,'fail'=>$e->getMessage()]);
