@@ -16,7 +16,7 @@ class CampeoesService implements CampeoesServiceInterface{
 
     public function index($pesquisar, $perPage){
         
-        $registros = $this->repository->with('alcance', 'recurso')->where(function($query) use ($pesquisar){
+        $registros = $this->repository->with('alcance', 'recurso',)->where(function($query) use ($pesquisar){
 
             if($pesquisar){
                 $query->where("nome","like","%".$pesquisar."%");

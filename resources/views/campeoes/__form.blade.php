@@ -8,9 +8,11 @@
         <br>
         <label for="imagem">Escolha uma imagem:</label>
         <input type="file" name="imagem" id="imagem">
+        
     </div>
-
+    
     <div class="inputCreate">
+    <br>
         <label class="campoCustomizado one">
             <input required type="text" name="nome" id="nome" value="{{$registro->nome ?? old('nome')}}">
             <span class="placeholder">Nome</span>
@@ -28,7 +30,7 @@
             
         </label>
         <br>
-        <div>
+        <div> 
     </div>
     
     <div class="cbox">
@@ -48,6 +50,6 @@
             <option value="{{ $alcance->id }}" @if(isset($registro) && $alcance->id == $registro->alcances_idalcances) selected @endif>{{ $alcance->alcance }}</option>
             @endforeach
         </select>
-
+        
     </div>
 </div>

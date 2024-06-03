@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Alcances;
 use App\Models\Recursos;
+use App\Models\Posicoes;
+use App\Models\Especies;
 use App\Http\Requests\CampeoesFormRequest;
 use App\Service\CampeoesServiceInterface;
 use Exception;
@@ -47,7 +49,9 @@ class CampeoesController extends Controller
         
         $alcances = Alcances::all(); // Busca todos os alcances
         $recursos = Recursos::all();
-        return view('campeoes.create', compact('alcances'), compact('recursos'));
+        $posicoes = Posicoes::all();
+        $proximoId = Campeoes::max('id') + 1;
+        return view('campeoes.create', compact('alcances','recursos', 'posicoes', 'proximoId'));
     }
 
     /**
@@ -66,8 +70,10 @@ class CampeoesController extends Controller
                 $imageData = file_get_contents($request->file('imagem')->getRealPath());
                 $data['imagem'] = $imageData;
             }
-
+            
             $this->service->store($data);
+
+
             return redirect()->route('campeoes.index')->with('success','Registro cadastrado com sucesso!');
         }catch(Exception $e){
             return view('campeoes.create',['registro'=>$registro,'fail'=>$e->getMessage()]);

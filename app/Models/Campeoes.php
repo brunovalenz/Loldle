@@ -58,4 +58,6 @@ class Campeoes extends Model
     {
         return $this->belongsTo(Recursos::class, 'recursos_idrecursos');
     }
+
+    
 }
