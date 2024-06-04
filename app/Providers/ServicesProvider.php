@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-
 class ServicesProvider extends ServiceProvider
 {
     public array $bindings = [
@@ -15,19 +14,14 @@ class ServicesProvider extends ServiceProvider
         PosicoesServiceInterface::class => PosicoesService::class,
         RecursoServiceInterface::class => RecursoService::class,
         Campeoes_PosicoesServiceInterface::class => Campeoes_PosicoesService::class,
+        Especies_CampeoesServiceInterface::class => Especies_CampeoesService::class,
     ];
 
-    /**
-     * Register services.
-     */
     public function register(): void
     {
         //
     }
 
-    /**
-     * Bootstrap services.
-     */
     public function boot(): void
     {
         //

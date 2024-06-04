@@ -1,4 +1,4 @@
-@extends('layout.appRegiao')
+@extends('layout.appRegioes')
 @section('content')
 
 <div tabindex="0" onclick="closeSidebar()" class="content" id="content">
@@ -8,9 +8,9 @@
     </div>
 
     <div class="divContainerDest">
-        <form action="{{route('regiao.destroy', $registro->id ) }}" method="POST">
+        <form action="{{route('regioes.destroy', $registro->id ) }}" method="POST">
             
-            @include('regiao.__form')
+            @include('regioes.__form')
             @csrf
             @method('DELETE')
                     
@@ -21,7 +21,7 @@
         </div>
 
         <div class="divCancelar">
-            <a class="btnCancelarDest" href="{{ route ('regiao.index')}}">Cancelar</a>
+            <a class="btnCancelarDest" href="{{ route ('regioes.index')}}">Cancelar</a>
         </div>
         
     </div>

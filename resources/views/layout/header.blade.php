@@ -16,13 +16,13 @@
                 </svg>
             </button>
             <a href="#" class="active" >Home</a>
-            <a href="{{ route ('alcances.index')}}" class="active" >Alcance</a>
-            <a href="{{ route ('posicoes.index')}}" class="active" >Posição</a>
-            <a href="{{ route ('regiao.index')}}" class="active" >Região</a>
+            <a href="{{ route ('alcances.index')}}" class="active" >Alcances</a>
+            <a href="{{ route ('posicoes.index')}}" class="active" >Posições</a>
+            <a href="{{ route ('regioes.index')}}" class="active" >Regiões</a>
             <a href="{{ route ('recurso.index')}}" class="active" >Recursos</a>
             <a href="{{ route ('especies.index')}}" class="active" >Espécies</a>
-            <a href="#" class="active" >Habilidade</a>
-            <a href="#" class="active" >Skin</a>
+            <a href="#" class="active" >Habilidades</a>
+            <a href="#" class="active" >Skins</a>
             <a href="{{ route ('campeoes.index')}}" class="active" >Campeões</a>
 
         </div>

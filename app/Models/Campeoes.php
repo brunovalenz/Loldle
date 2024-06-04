@@ -29,7 +29,7 @@ class Campeoes extends Model
     {
         return [
             'nome' => 'required|string|max:255',
-            'imagem' => '|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'imagem' => '|image|mimes:jpeg,png,jpg,gif|max:8192',
             'genero' => 'required|string|max:255',
             'ano' => 'required|integer',
             'recursos_idrecursos' => 'required|integer',
@@ -40,7 +40,7 @@ class Campeoes extends Model
     public function feedback(){
         return[
             'nome' => 'O campo :attribute é obrigatório ser informado!',
-            
+            'imagem' => 'A :attribute é muito grande!',
             'genero' => 'O campo :attribute é obrigatório ser informado!',
             'ano' => 'O campo :attribute é obrigatório ser informado!',
             'recursos_idrecursos' => 'O campo :attribute é obrigatório ser informado!',
@@ -64,4 +64,13 @@ class Campeoes extends Model
         return $this->belongsToMany(Campeoes_Posicoes::class, 'campeoes_posicoes', 'campeoes_idcampeoes', 'posicoes_idposicoes');	
     }
     
+    public function especies()
+    {
+        return $this->belongsToMany(Especies_Campeoes::class,'especies_campeoes', 'campeoes_idcampeoes', 'especies_idespecies');
+    }
+
+    public function regioes()
+    {
+        //return $this->belongsToMany(Regioes_Campeoes::class);
+    }
 }

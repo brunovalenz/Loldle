@@ -1,4 +1,4 @@
-@extends('layout.appRegiao')
+@extends('layout.appRegioes')
 @section('content')
 
 <div tabindex="0" onclick="closeSidebar()" class="content" id="content">
@@ -8,17 +8,17 @@
     </div>
 
     <div class="divContainerEdit">
-        <form action="{{route('regiao.update', $registro->id ) }}" method="POST">
+        <form action="{{route('regioes.update', $registro->id ) }}" method="POST">
             @csrf
             @method('PUT')
-            @include('regiao.__form')
+            @include('regioes.__form')
 
             <div class="divSalvar">
                 <button class="btnSalvar" type="submit"> Alterar</button>
             </div>
 
             <div class="divCancelar">
-                <a class="btnCancelar" href="{{ route ('regiao.index')}}">Cancelar</a>
+                <a class="btnCancelar" href="{{ route ('regioes.index')}}">Cancelar</a>
             </div>
             
         </form>

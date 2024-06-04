@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RecursosFormRequest;
-use App\Models\Recursos;
 use Exception;
 use App\Service\RecursosServiceInterface;
 use Illuminate\Http\Request;

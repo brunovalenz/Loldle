@@ -18,38 +18,24 @@ class Campeoes_PosicoesController extends Controller
         $this->service = $service;
     }
 
-    
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(Request $request)#mostrar os dados do nosso autor
+    public function index(Request $request)
     {
         $pesquisar = $request->pesquisar ?? "";
         $perPage = $request->perPage ?? 5;
-        
-       // dd('acessando o controller autor controler - index');// mostrar uma mensagem 
-       //$registros = Autor::paginate(10);#crie uma variável
+
        $registros = $this->service->index($pesquisar, $perPage);
-       //dd($registros);
        
-        return view ('campeoes_posicoes.index', ['registros' => $registros, 'perPage' => $perPage, 'filter'=>$pesquisar]); //retorna os conteudo para determinado local
+        return view ('campeoes_posicoes.index', ['registros' => $registros, 'perPage' => $perPage, 'filter'=>$pesquisar]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //dd('acessando o controller autor controler - create');
         
-        $campeoes = Campeoes::all(); // Busca todos os alcances
+        $campeoes = Campeoes::all();
         $posicoes = Posicoes::all();
-        return view('campeoes_posicoes.create', compact('campeao'), compact('posicao'));
+        return view('campeoes_posicoes.create', compact('campeao','posicao'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Campeoes_PosicoesFormRequest $request)
     {
 
@@ -66,9 +52,6 @@ class Campeoes_PosicoesController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $registro = null;
@@ -80,9 +63,6 @@ class Campeoes_PosicoesController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $registro = null;
@@ -96,9 +76,6 @@ class Campeoes_PosicoesController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Campeoes_PosicoesFormRequest $request, string $id)
     {
         $registro = null;
@@ -125,9 +102,6 @@ class Campeoes_PosicoesController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         try{

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Regiao extends Model
+class Regioes extends Model
 {
     use HasFactory;
 
@@ -16,7 +16,7 @@ class Regiao extends Model
     ];
 
     protected $hiden =[
-        'creat_at',
+        'created_at',
         'updated_at'
     ];
 

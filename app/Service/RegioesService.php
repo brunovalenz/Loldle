@@ -2,16 +2,15 @@
 
 namespace App\Service;
 
-use App\Models\Regiao;
-use Illuminate\Http\Request;
+use App\Models\Regioes;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
-class RegiaoService implements RegiaoServiceInterface{
+class RegioesService implements RegioesServiceInterface{
 
     private $repository;
 
-    public function __construct(Regiao $regiao){
+    public function __construct(Regioes $regiao){
         $this->repository = $regiao;
     }
 
@@ -45,7 +44,7 @@ class RegiaoService implements RegiaoServiceInterface{
         try{
             $registro = $this->repository->findOrfail($id);
             return $registro;
-        }catch(ModelNotFoundException $e){
+        }catch(Exception $e){
             throw new Exception('Registro não localizado!');
         }
     }

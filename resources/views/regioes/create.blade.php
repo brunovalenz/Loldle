@@ -1,4 +1,4 @@
-@extends('layout.appRegiao')
+@extends('layout.appRegioes')
 @section('content')
 
 <div tabindex="0" onclick="closeSidebar()" class="content" id="content">
@@ -9,16 +9,16 @@
         </h1>
 
         <div class="divFilhaCreate">
-            <form action="{{route('regiao.store') }}" method="POST">
+            <form action="{{route('regioes.store') }}" method="POST">
                 @csrf
-                @include('regiao.__form')
+                @include('regioes.__form')
 
                 <div class="divSalvar">
                     <button type="submit" class="btnSalvar"> Salvar</button>
                 </div>
                 
                 <div class="divCancelar">
-                    <a class="btnCancelar" href="{{ route ('regiao.index')}}">Cancelar</a>
+                    <a class="btnCancelar" href="{{ route ('regioes.index')}}">Cancelar</a>
                 </div>
 
             </form>

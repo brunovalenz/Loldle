@@ -52,11 +52,10 @@ class CampeoesService implements CampeoesServiceInterface{
     }
 
     public function update($request, string $id){
-        //dd('passando pelo ervico de update');
         $campeaoCadastrado = $this->repository->find($id);
         
-
         DB::beginTransaction();
+
         try{
             $registro=$campeaoCadastrado->update($request);
             DB::commit();
@@ -79,6 +78,41 @@ class CampeoesService implements CampeoesServiceInterface{
         }catch(Exception $e){
             DB::rollBack();
             return new Exception('Erro ao excluir o registro'.$e->getMessage());
+        }
+    }
+
+    public function attach($posicoes, $especies, $regioes)
+    {
+        $campeao = $this->show(Campeoes::max('id'));
+        
+        DB::beginTransaction();
+        try{
+            $campeao->posicoes()->attach($posicoes);
+            $campeao->especies()->attach($especies);
+            // $campeao->regioes()->attach($regioes);
+
+            DB::commit();
+        }catch(Exception $e){
+            DB::rollBack();
+            dd($e);
+            return new Exception('Erro ao fazer as relações N para N'.$e->getMessage());
+        }
+    }
+
+    public function sync($id, $posicoes, $especies, $regioes)
+    {
+        $campeao = $this->show($id);
+
+        DB::beginTransaction();
+        try{
+            $campeao->posicoes()->sync($posicoes);
+            $campeao->especies()->sync($especies);
+            $campeao->regioes()->sync($regioes);
+
+            DB::commit();
+        }catch(Exception $e){
+            DB::rollBack();
+            return new Exception('Erro ao atualizar as relações N para N'.$e->getMessage());
         }
     }
 }

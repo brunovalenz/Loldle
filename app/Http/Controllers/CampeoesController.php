@@ -7,6 +7,8 @@ use App\Models\Alcances;
 use App\Models\Recursos;
 use App\Models\Posicoes;
 use App\Models\Campeoes;
+use App\Models\Especies;
+use App\Models\Regioes;
 use App\Http\Requests\CampeoesFormRequest;
 use App\Service\CampeoesServiceInterface;
 use Exception;
@@ -22,59 +24,41 @@ class CampeoesController extends Controller
         $this->service = $service;
     }
 
-    
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(Request $request)#mostrar os dados do nosso autor
+    public function index(Request $request)
     {
         $pesquisar = $request->pesquisar ?? "";
         $perPage = $request->perPage ?? 5;
-        
-       // dd('acessando o controller autor controler - index');// mostrar uma mensagem 
-       //$registros = Autor::paginate(10);#crie uma variável
+
        $registros = $this->service->index($pesquisar, $perPage);
-       //dd($registros);
-       
-        return view ('campeoes.index', ['registros' => $registros, 'perPage' => $perPage, 'filter'=>$pesquisar]); //retorna os conteudo para determinado local
+
+        return view ('campeoes.index', ['registros' => $registros, 'perPage' => $perPage, 'filter'=>$pesquisar]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //dd('acessando o controller autor controler - create');
         
-        $alcances = Alcances::all(); // Busca todos os alcances
+        $alcances = Alcances::all();
         $recursos = Recursos::all();
         $posicoes = Posicoes::all();
-        $proximoId = Campeoes::max('id') + 1;
-        return view('campeoes.create', compact('alcances','recursos', 'posicoes', 'proximoId'));
+        $especies = Especies::all();
+        $regioes = Regioes::all();
+        return view('campeoes.create', compact('alcances', 'recursos', 'posicoes', 'especies', 'regioes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CampeoesFormRequest $request)
     {
-
         $registro=$request->all();
         
         try{
             $data = $request->validated();
 
-            // Processa a imagem
             if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
                 $imageData = file_get_contents($request->file('imagem')->getRealPath());
                 $data['imagem'] = $imageData;
             }
 
             $this->service->store($data);
-
-            $campeao = $this->service->show(Campeoes::max('id'));
-
-            $campeao->posicoes()->attach($registro['posicoes']);
+            $this->service->attach($registro['posicoes'], $registro['especies'], $registro['regioes']);
 
             return redirect()->route('campeoes.index')->with('success','Registro cadastrado com sucesso!');
         }catch(Exception $e){
@@ -83,9 +67,6 @@ class CampeoesController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $registro = null;
@@ -97,26 +78,22 @@ class CampeoesController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $registro = null;
         $alcances = Alcances::all();
         $recursos = Recursos::all();
         $posicoes = Posicoes::all();
+        $especies = Especies::all();
+        $regioes = Regioes::all();
         try{
             $registro = $this->service->show($id);
-            return view('campeoes.edit', ['registro'=>$registro], compact('alcances', 'recursos', 'posicoes'));
+            return view('campeoes.edit', ['registro'=>$registro], compact('alcances', 'recursos', 'posicoes', 'especies', 'regioes'));
         }catch(Exception $e){
             return view('campeoes.edit',['registro'=>$registro,'fail'=>$e->getMessage()]);
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(CampeoesFormRequest $request, string $id)
     {
         $registro=$request->all();
@@ -125,13 +102,14 @@ class CampeoesController extends Controller
 
             $data = $request->validated();
 
-            // Processa a imagem
             if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
                 $imageData = file_get_contents($request->file('imagem')->getRealPath());
                 $data['imagem'] = $imageData;
             }
 
             $this->service->update($data,$id);
+            $this->service->sync($id, $registro['posicoes'], $registro['especies'], $registro['regioes']);
+
             return redirect()->route('campeoes.index')->with('success','Registro alterado com sucesso!');
         }catch(Exception $e){
             return view('campeoes.edit',['registro'=>$registro,'fail'=>$e->getMessage()]);
@@ -151,9 +129,6 @@ class CampeoesController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         try{
