@@ -19,6 +19,8 @@ use App\Service\{
     Campeoes_PosicoesService,
     Especies_CampeoesServiceInterface,
     Especies_CampeoesService,
+    UsersService,
+    UsersServiceInterface
 };
 
 use Illuminate\Pagination\Paginator;
@@ -37,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(RecursosServiceInterface::class, RecursosService::class);
         $this->app->bind(Campeoes_PosicoesServiceInterface::class, Campeoes_PosicoesService::class);
         $this->app->bind(Especies_CampeoesServiceInterface::class, Especies_CampeoesService::class);
+        $this->app->bind(UsersServiceInterface::class, UsersService::class);
     }
 
     public function boot(): void

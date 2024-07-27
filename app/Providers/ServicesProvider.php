@@ -15,6 +15,7 @@ class ServicesProvider extends ServiceProvider
         RecursoServiceInterface::class => RecursoService::class,
         Campeoes_PosicoesServiceInterface::class => Campeoes_PosicoesService::class,
         Especies_CampeoesServiceInterface::class => Especies_CampeoesService::class,
+        UsersServiceInterface::class => UsersService::class,
     ];
 
     public function register(): void
