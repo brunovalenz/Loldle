@@ -15,7 +15,7 @@ Route::get('/dashboard', [DashBoard::class,'dashboard'])->name('dashboard');
 
 Route::prefix('alcances') -> group(function(){
 
-    #Route::any('/index' , [AlcancesController::class,'index'])->name('alcances.index');
+    Route::any('/index' , [AlcancesController::class,'index'])->name('alcances.index');
     Route::get('/create', [AlcancesController::class, 'create'])->name('alcances.create');
     Route::get('/edit/{id}', [AlcancesController::class, 'edit'])->name('alcances.edit');
     Route::get('/show/{id}', [AlcancesController::class, 'show'])->name('alcances.show');

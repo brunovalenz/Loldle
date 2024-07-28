@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RecursosFormRequest;
+
 use Exception;
 use App\Service\RecursosServiceInterface;
 use Illuminate\Http\Request;
@@ -25,6 +26,7 @@ class RecursosController extends Controller
      */
     public function index(Request $request)
     {
+
         $pesquisar = $request->pesquisar ?? "";
         $perPage = $request->perPage ?? 5;
        // dd('acessando o controller autor controler - index');// mostrar uma mensagem 

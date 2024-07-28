@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Service\UsersServiceInterface;
 use App\Http\Requests\UserFormRequest;
+use Illuminate\Support\Facades\Hash;
+
 class UserController extends Controller
 {
     private $service;
@@ -21,13 +23,8 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $pesquisar = $request->pesquisar ?? "";
-        $perPage = $request->perPage ?? 5;
-       // dd('acessando o controller autor controler - index');// mostrar uma mensagem 
-       //$registros = Autor::paginate(10);#crie uma variável
-       $registros = $this->service->index($pesquisar, $perPage);
-       //dd($registros);
-        return view ('user.index', ['registros' => $registros, 'perPage' => $perPage, 'filter'=>$pesquisar]);
+        
+        return view ('user.index');
     }
 
     /**
@@ -35,7 +32,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //dd('acessando controller - create');
+        
+        
         return view('user.create');
     }
 
