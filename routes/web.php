@@ -41,7 +41,7 @@ Route::prefix('regioes') -> group(function(){
 
 Route::prefix('recurso') -> group(function(){
 
-    Route::any('/index' , [RecursosController::class,'index'])->name('recurso.index');
+    Route::any('/index' , [RecursosController::class,'index'])->name('recurso.index')->middleware(['auth:sanctum', 'ability:Teste']);
     Route::get('/create', [RecursosController::class, 'create'])->name('recurso.create');
     Route::get('/edit/{id}', [RecursosController::class, 'edit'])->name('recurso.edit');
     Route::get('/show/{id}', [RecursosController::class, 'show'])->name('recurso.show');

@@ -9,8 +9,7 @@ use App\Http\Controllers\RecursosController;
 Route::post('/login', [AuthController::class, 'auth'])->name('login.auth');
 
 Route::middleware(['auth:sanctum','ability:asda'])->group(function(){
-    Route::any('/index' , [AlcancesController::class,'index'])->name('alcances.index');
-    Route::any('/index' , [RecursosController::class,'index'])->name('recurso.index');
+
 });
 
 
