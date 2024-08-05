@@ -116,3 +116,8 @@ Route::prefix('user') -> group(function(){
     Route::put('/update/{id}', [UserController::class, 'update'])->name('user.update');#o id é chave primeira da tabela para identifcar quem estou modificando
     Route::delete('/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');#estou passando parametro para o servidor
 });
+
+Route::prefix('home') -> group(function(){
+
+    Route::any('/jogar' , [HomeController::class,'jogar'])->name('home.jogar');    
+});
