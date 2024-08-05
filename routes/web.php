@@ -9,6 +9,7 @@ use App\Http\Controllers\Campeoes_PosicoesController;
 use App\Http\Controllers\EspeciesController;
 use App\Http\Controllers\PosicoesController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashBoard;
 
 Route::get('/dashboard', [DashBoard::class,'dashboard'])->name('dashboard');
@@ -41,7 +42,7 @@ Route::prefix('regioes') -> group(function(){
 
 Route::prefix('recurso') -> group(function(){
 
-    Route::any('/index' , [RecursosController::class,'index'])->name('recurso.index')->middleware(['auth:sanctum', 'ability:Teste']);
+    Route::any('/index' , [RecursosController::class,'index'])->name('recurso.index');
     Route::get('/create', [RecursosController::class, 'create'])->name('recurso.create');
     Route::get('/edit/{id}', [RecursosController::class, 'edit'])->name('recurso.edit');
     Route::get('/show/{id}', [RecursosController::class, 'show'])->name('recurso.show');
@@ -115,4 +116,9 @@ Route::prefix('user') -> group(function(){
     Route::post('/store', [UserController::class, 'store'])->name('user.store');
     Route::put('/update/{id}', [UserController::class, 'update'])->name('user.update');#o id é chave primeira da tabela para identifcar quem estou modificando
     Route::delete('/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');#estou passando parametro para o servidor
+});
+
+Route::prefix('home') -> group(function(){
+
+    Route::any('/index' , [HomeController::class,'index'])->name('home.index');
 });

@@ -25,6 +25,10 @@ body{
     background-image: url(../img/group-baronfight-splash.jpg);
 }
 
+.imgFundoHome{
+    background-image: url(../img/homeBG.jpeg);
+}
+
 .imgFundoRegiao{
     background-image: url(../img/Regiao.jpg);
 }
